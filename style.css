@@ -1,0 +1,36 @@
+.flex-container
+{
+    display: flex;
+    /*border: 2px solid black;*/
+    /*height: 750px;*/
+    margin: auto;
+    flex-direction: row ;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 1250px;
+}
+
+.flex-item
+{
+    border: 1px solid #dcdcdc;
+    background-color: #f4f4f4;
+    padding: 10px;
+    margin-bottom:  20px;
+    width: 13%;
+    height: calc( 1250px * 0.12 );
+    box-sizing: border-box;
+}
+
+.flex-bar
+{
+    border: 1px solid #dcdcdc;
+    background-color: #f4f4f4;
+    padding: 10px;
+    margin-bottom:  20px;
+    width: 13%;
+    height: 50px;
+    box-sizing: border-box;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
