@@ -44,8 +44,8 @@
 
     }
 
-    const send = document.querySelector('#test');
-    send.addEventListener('click', onSubmit);
+    //const send = document.querySelector('#test');
+    //send.addEventListener('click', onSubmit);
 
    sheculeGET();
 
