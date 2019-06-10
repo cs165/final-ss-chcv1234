@@ -29,7 +29,7 @@ async function onGet(req, res) {
     {
         let line = {} ;
 
-        for(let j=0 ; j< rows[0].length; j++)
+        for(let j=0 ; j< 4; j++)
         {
             line[rows[0][j]] = rows[i][j] ;
         }
@@ -43,6 +43,47 @@ async function onGet(req, res) {
     res.json(array);
 }
 app.get('/api', onGet);
+
+async function onGet2(req, res) {
+
+    const result = await sheet.getRows();
+    const rows = result.rows;
+    const column  = req.params.column;
+    const value  = req.params.value;
+    //console.log(rows);
+
+    var array = [] ;
+
+    console.log(column + "------" + value);
+
+    // TODO(you): Finish onGet.
+    let line = {} ;
+
+    for(let i=1 ; i < rows.length; i++)
+    {
+
+        if( rows[i][0] === column && rows[i][1] === value)
+        {
+            for(let j=0 ; j< rows[0].length; j++)
+            {
+                line[rows[0][j]] = rows[i][j] ;
+            }
+        }
+
+
+    }
+
+    array.push(line);
+
+    console.log(array);
+    console.log(line);
+
+
+    //res.json( { status: 'unimplemented!!!'} );
+    res.json(array);
+}
+app.get('/api/:column/:value', onGet2);
+
 // Please don't change this; this is needed to deploy on Heroku.
 const port = process.env.PORT || 3000;
 
