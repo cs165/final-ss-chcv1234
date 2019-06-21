@@ -20,6 +20,85 @@
         console.log('get2');
         console.log(json);
 
+
+        const timebar = document.querySelectorAll('.hour');
+        const eventbar = document.querySelectorAll('.hourevent');
+
+        for(let i=0 ; i<24 ; i++)
+        {
+            timebar[i].innerHTML = i + ':00';
+
+            if(!json[0][i])
+            {
+                eventbar.innerHTML = '' ;
+            }
+            else
+            {
+                eventbar[i].innerHTML = json[0][i] ;
+            }
+
+        }
+
+
+        //timebar[0].innerHTML = json[0][0] ;
+    }
+
+    /*
+    async function PostSubmit(event){
+        event.preventDefault();
+
+        const options = {method: "POST"} ;
+
+        const bodyobj = {} ;
+        const monthinput = document.querySelector('#monthadd').value;
+        const dayinput = document.querySelector('#dayadd').value;
+        const timeinput = document.querySelector('#timeadd').value;
+        const eventinput = document.querySelector('#event').value;
+
+        bodyobj[monthinput + '/' + dayinput + '/' + timeinput] = eventinput ;
+
+        options.body = JSON.stringify(bodyobj);
+        options.headers = {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        };
+
+        const response = await fetch('/api', options);
+        const json = await response.json();
+
+        const cnt = 0 ;
+
+        console.log('post');
+        console.log(json);
+
+    }
+    */
+
+
+    async function updateEvent(event){
+
+        event.preventDefault();
+
+        const options = {method: "POST"} ;
+
+        const bodyobj = {} ;
+        const monthinput = document.querySelector('#monthadd').value;
+        const dayinput = document.querySelector('#dayadd').value;
+        const timeinput = document.querySelector('#timeadd').value;
+        const eventinput = document.querySelector('#event').value;
+        const path = "/api/" + monthinput + "/" + dayinput ;
+
+        bodyobj[timeinput] = eventinput ;
+
+        options.body = JSON.stringify(bodyobj);
+        options.headers = {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        };
+
+        const response = await fetch(path, options);
+
+        console.log('post');
     }
 
     async function sheculeGET(event){
@@ -63,8 +142,12 @@
 
     }
 
-    const send = document.querySelector('form');
+    const send = document.querySelector('#search');
     send.addEventListener('submit', onSubmit);
+
+    const add = document.querySelector('#update');
+    add.addEventListener('submit' , updateEvent);
+
 
    sheculeGET();
 

@@ -44,3 +44,48 @@
     background-color: lightcoral;
 }
 
+.inactive {
+    display: none !important;
+}
+
+.hourevent
+{
+    border: 1px solid #dcdcdc;
+    background-color: #f4f4f4;
+    padding: 10px;
+    height: 50px;
+    width: 800px;
+    box-sizing: border-box;
+}
+
+.eventcontainer
+{
+    display: flex;
+    /*border: 2px solid black;*/
+    /*height: 750px;*/
+    margin: auto;
+    flex-direction: row ;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 880px;
+}
+
+.hour
+{
+    border: 1px solid #dcdcdc;
+    background-color: #f4f4f4;
+    padding: 10px;
+    height: 50px;
+    width: 80px;
+    box-sizing: border-box;
+}
+
+.block
+{
+    transition: 0.3s ease-in-out;
+}
+
+.block:hover
+{
+    transform: rotate(-30deg);
+}

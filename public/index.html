@@ -4,11 +4,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <title>CS193x Final Project</title>
+    <!--<script src="https://code.jquery.com/pep/0.4.1/pep.js"></script>-->
     <link rel="stylesheet" href="css/style.css"/>
-    <script src="js/script.js" defer></script>
+    <!--<script src="js/script.js" defer></script>-->
+    <script src="js/month-screen.js" defer></script>
+    <script src="js/day-screen.js" defer></script>
+    <script src="js/app.js" defer></script>
+    <script src="js/main.js" defer></script>
+
   </head>
 
   <body>
+
+    <section id="monthly">
     <div class="flex-container">
       <div class="flex-bar">Sunday</div>
       <div class="flex-bar">Monday</div>
@@ -70,14 +78,86 @@
 
     <!--<button type="button" id="test">test</button>-->
 
-    <form>
+    <form id="search">
       <div>
         <input type="text" id="month" placeholder="month">
         /
         <input type="text" id="day" placeholder="day">
-        <p> <input type="submit" id="button" value="search"> </p>
+        <input type="submit" id="button" value="search">
       </div>
     </form>
+
+    </section>
+
+    <p></p>
+
+    <section id="daily" class="inactive">
+
+    <div class="eventcontainer">
+      <div class="hour"></div>
+      <div class="hourevent"></div>
+      <div class="hour"></div>
+      <div class="hourevent"></div>
+      <div class="hour"></div>
+      <div class="hourevent"></div>
+      <div class="hour"></div>
+      <div class="hourevent"></div>
+      <div class="hour"></div>
+      <div class="hourevent"></div>
+      <div class="hour"></div>
+      <div class="hourevent"></div>
+      <div class="hour"></div>
+      <div class="hourevent"></div>
+      <div class="hour"></div>
+      <div class="hourevent"></div>
+      <div class="hour"></div>
+      <div class="hourevent"></div>
+      <div class="hour"></div>
+      <div class="hourevent"></div>
+      <div class="hour"></div>
+      <div class="hourevent"></div>
+      <div class="hour"></div>
+      <div class="hourevent"></div>
+      <div class="hour"></div>
+      <div class="hourevent"></div>
+      <div class="hour"></div>
+      <div class="hourevent"></div>
+      <div class="hour"></div>
+      <div class="hourevent"></div>
+      <div class="hour"></div>
+      <div class="hourevent"></div>
+      <div class="hour"></div>
+      <div class="hourevent"></div>
+      <div class="hour"></div>
+      <div class="hourevent"></div>
+      <div class="hour"></div>
+      <div class="hourevent"></div>
+      <div class="hour"></div>
+      <div class="hourevent"></div>
+      <div class="hour"></div>
+      <div class="hourevent"></div>
+      <div class="hour"></div>
+      <div class="hourevent"></div>
+      <div class="hour"></div>
+      <div class="hourevent"></div>
+      <div class="hour"></div>
+      <div class="hourevent"></div>
+    </div>
+
+    <form id="update">
+      <div>
+        <input type="text" id="monthadd" placeholder="month">
+        /
+        <input type="text" id="dayadd" placeholder="day">
+        /
+        <input type="text" id="timeadd" placeholder="time">
+        :
+        <input type="text" id="event" placeholder="event">
+        <input type="submit" id="buttonadd" value="add">
+      </div>
+    </form>
+        <input type="button" id="back" value="back">
+    </section>
 
    </body>
 </html>

@@ -84,6 +84,139 @@ async function onGet2(req, res) {
 }
 app.get('/api/:column/:value', onGet2);
 
+/*
+async function onPost(req, res) {
+    const messageBody = req.body;
+
+    const keyinput = Object.keys(messageBody);
+    const valueinput = Object.values(messageBody);
+
+    const result = await sheet.getRows();
+    const rows = result.rows;
+
+    var postrow = [] ;
+
+    let n = 0 ;
+
+    const date = keyinput.split() ;
+
+    // TODO(you): Implement onPost.
+
+    //NOT COMPLETE
+
+    console.log(keyinput);
+    console.log(valueinput);
+
+    while( n < keyinput.length)
+    {
+        for(let i=0 ; i<rows[0].length; i++)
+        {
+            if(rows[0][i] === keyinput[n])
+            {
+                postrow[i] = valueinput[n];
+                n++ ;
+            }
+        }
+    }
+
+    await sheet.appendRow(postrow);
+    res.json({"response": "success"});
+
+    //res.json( { status: 'unimplemented'} );
+}
+app.post('/api', jsonParser, onPost);
+*/
+
+async function onPost(req, res) {
+    const column  = req.params.column;
+    const value  = req.params.value;
+    const messageBody = req.body;
+
+    const keyinput = Object.keys(messageBody);
+    const valueinput = Object.values(messageBody);
+
+    const result = await sheet.getRows();
+    const rows = result.rows;
+
+    let beupdate1 ;
+    let beupdate2 ;
+    let n=0 ;
+    var patchrow = [] ;
+
+    // TODO(you): Implement onPatch.
+
+    for(let i=1 ; i<rows.length; i++)
+    {
+        if( rows[i][0] === column && rows[i][1] === value)
+        {
+            beupdate2 = i ;
+            patchrow[0] = column;
+            patchrow[1] = value;
+            break ;
+        }
+    }
+
+    for(let i=4 ; i<rows[0].length; i++)
+    {
+        if(rows[0][i] === keyinput[0])
+        {
+            if(valueinput[0] === '')
+            {
+                patchrow[i] = null ;
+            }
+            else
+            {
+                patchrow[i] = valueinput[0] ;
+            }
+
+        }
+        else
+        {
+            patchrow[i] = rows[beupdate2][i] ;
+        }
+
+
+
+    }
+
+
+    for(let i=4 ; i<patchrow.length ; i++)
+    {
+        console.log(i + ' ' + patchrow[i]) ;
+
+        if(!patchrow[i])
+        {
+            n = 0 ;
+            patchrow[i] = '' ;
+        }
+        else
+        {
+            n = 1 ;
+            break ;
+        }
+    }
+
+
+    patchrow[2] = rows[beupdate2][2] ;
+
+    if( n === 1)
+    {
+        patchrow[3] = 1 ;
+    }
+    else if(n === 0)
+    {
+        patchrow[3] = 0 ;
+    }
+
+    console.log(patchrow);
+
+    await sheet.setRow(beupdate2 , patchrow);
+    res.json({"response": "success" });
+
+    //res.json( { status: 'unimplemented'} );
+}
+app.post('/api/:column/:value', jsonParser, onPost);
+
 // Please don't change this; this is needed to deploy on Heroku.
 const port = process.env.PORT || 3000;
 
