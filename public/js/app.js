@@ -1,6 +1,8 @@
 class App {
     constructor() {
         // TODO(you): Implement the constructor and add fields as necessary.
+        this.daybar = document.querySelector('.day-bar');
+
         this.monthElement = document.querySelector('#monthly');
         this.month = new Monthscreen(this.monthElement);
 
@@ -16,18 +18,24 @@ class App {
     // TODO(you): Add methods as necessary.
 
 
-    showDay(event){
+    async showDay(event){
 
-        this.day.onSubmit(event.detail.Month,event.detail.Day);
+
+        this.daybar.innerHTML = this.daybar.innerHTML + event.detail.Day ;
+        let test = await this.day.onSubmit(event.detail.Month,event.detail.Day);
         this.month.hide();
         this.day.show();
+        document.getElementById("daily").scrollIntoView({behavior: "auto" , block: "start"});
 
     }
 
-    Return(event){
-        this.month.scheduleGET();
+    async Return(event){
+        let test = await this.month.scheduleGET();
         this.day.hide();
         this.month.show();
+        document.getElementById("monthly").scrollIntoView({behavior: "auto" , block: "start"});
+        this.day.preDelete();
+        this.daybar.innerHTML = "JUNE / " ;
     }
 
 }

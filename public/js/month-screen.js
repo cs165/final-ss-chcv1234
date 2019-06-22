@@ -11,8 +11,8 @@ class Monthscreen {
         this.scheduleGET();
 
         this.getSubmit = this.getSubmit.bind(this);
-        this.send = document.querySelector('#search');
-        this.send.addEventListener('submit', this.getSubmit);
+        //this.send = document.querySelector('#search');
+        //this.send.addEventListener('submit', this.getSubmit);
 
 
     }

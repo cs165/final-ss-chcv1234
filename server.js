@@ -163,6 +163,7 @@ async function onPost(req, res) {
             if(valueinput[0] === '')
             {
                 patchrow[i] = null ;
+
             }
             else
             {
@@ -175,10 +176,23 @@ async function onPost(req, res) {
             patchrow[i] = rows[beupdate2][i] ;
         }
 
-
+        console.log(patchrow[i]);
+        console.log("--------------");
 
     }
 
+    for(let i=4 ; i<patchrow.length ; i++)
+    {
+        if(!patchrow[i])
+        {
+            n = 0 ;
+        }
+        else
+        {
+            n = 1 ;
+            break ;
+        }
+    }
 
     for(let i=4 ; i<patchrow.length ; i++)
     {
@@ -186,13 +200,7 @@ async function onPost(req, res) {
 
         if(!patchrow[i])
         {
-            n = 0 ;
             patchrow[i] = '' ;
-        }
-        else
-        {
-            n = 1 ;
-            break ;
         }
     }
 

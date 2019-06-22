@@ -23,6 +23,9 @@
     width: 13%;
     height: calc( 1250px * 0.12 );
     box-sizing: border-box;
+    border-radius:10px;
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 25px;
 }
 
 .flex-bar
@@ -32,6 +35,20 @@
     padding: 10px;
     margin-bottom:  20px;
     width: 13%;
+    height: 50px;
+    box-sizing: border-box;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.month-bar
+{
+    border: 1px solid #dcdcdc;
+    background-color: lightgoldenrodyellow;
+    padding: 10px;
+    margin-bottom:  20px;
+    width: 1250px;
     height: 50px;
     box-sizing: border-box;
     font-size: 20px;
@@ -56,6 +73,8 @@
     height: 50px;
     width: 800px;
     box-sizing: border-box;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 20px;
 }
 
 .eventcontainer
@@ -68,6 +87,21 @@
     flex-wrap: wrap;
     justify-content: center;
     width: 880px;
+    margin-bottom: 80px;
+}
+
+.day-bar
+{
+    border: 1px solid #dcdcdc;
+    background-color: lightgoldenrodyellow;
+    padding: 10px;
+    height: 50px;
+    width: 880px;
+    box-sizing: border-box;
+    margin-bottom:  20px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
 }
 
 .hour
@@ -78,6 +112,9 @@
     height: 50px;
     width: 80px;
     box-sizing: border-box;
+    font-size: 20px;
+    font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    text-align: center;
 }
 
 .block
@@ -88,4 +125,65 @@
 .block:hover
 {
     transform: rotate(-30deg);
+}
+
+body
+{
+    background-color: lightsalmon;
+}
+
+.input-block
+{
+    border: 1px solid #dcdcdc;
+    background-color: lightgoldenrodyellow;
+    padding: 10px;
+    height: 60px;
+    width: 880px;
+    box-sizing: border-box;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    position: fixed;
+    bottom: 0px;
+    left: calc( 50% - 440px );
+    right: calc( 50% - 440px );
+    border-radius:10px;
+}
+
+.textstyle
+{
+    border:2px black solid;
+    border-radius: 5px;
+    margin: auto;
+    height: 30px;
+    font-size: 20px;
+}
+
+.time
+{
+    width: 100px;
+}
+
+.event
+{
+    width: 300px;
+}
+
+.buttonstyle
+{
+    height: 30px;
+    width: 80px;
+    cursor:pointer;
+    background: sandybrown;
+    border:0 none;
+    font-size: 25px;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-left: 20px;
+}
+
+.back
+{
+    margin-left: 80px;
+    background: darksalmon;
 }

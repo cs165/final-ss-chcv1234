@@ -10,6 +10,7 @@ class Dayscreen {
         this.onSubmit = this.onSubmit.bind(this);
         this.updateEvent = this.updateEvent.bind(this);
         this.backto = this.backto.bind(this);
+        this.preDelete = this.preDelete.bind(this);
 
         this.goBack = document.querySelector('#back');
         this.goBack.addEventListener('click' , this.backto);
@@ -67,11 +68,11 @@ class Dayscreen {
         const options = {method: "POST"} ;
 
         const bodyobj = {} ;
-        const monthinput = document.querySelector('#monthadd').value;
-        const dayinput = document.querySelector('#dayadd').value;
+        //const monthinput = document.querySelector('#monthadd').value;
+        //const dayinput = document.querySelector('#dayadd').value;
         const timeinput = document.querySelector('#timeadd').value;
         const eventinput = document.querySelector('#event').value;
-        const path = "/api/" + monthinput + "/" + dayinput ;
+        const path = "/api/" + this.monthinput + "/" + this.dayinput ;
 
         bodyobj[timeinput] = eventinput ;
 
@@ -84,13 +85,19 @@ class Dayscreen {
         const response = await fetch(path, options);
 
         console.log('post');
+        console.log(options);
 
-        this.onSubmit(this.monthinput,this.dayinput);
+        let wait = await this.onSubmit(this.monthinput,this.dayinput);
+
+        document.getElementById("daily").scrollIntoView({behavior: "smooth" , block: "start"});
     }
 
     backto() {
         let backmenu = new CustomEvent("backmenu");
         document.dispatchEvent(backmenu);
+    }
+
+    preDelete(){
 
         for(let i=0 ; i<24 ; i++)
         {
@@ -98,6 +105,7 @@ class Dayscreen {
 
             this.eventbar[i].innerHTML = '' ;
         }
+
     }
 
     show() {
