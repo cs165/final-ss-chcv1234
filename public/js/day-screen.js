@@ -82,12 +82,16 @@ class Dayscreen {
             'Content-Type': 'application/json'
         };
 
+        document.querySelector('.waiting-block').classList.remove('inactive');
+
         const response = await fetch(path, options);
 
         console.log('post');
         console.log(options);
 
+
         let wait = await this.onSubmit(this.monthinput,this.dayinput);
+        document.querySelector('.waiting-block').classList.add('inactive');
 
         document.getElementById("daily").scrollIntoView({behavior: "smooth" , block: "start"});
     }

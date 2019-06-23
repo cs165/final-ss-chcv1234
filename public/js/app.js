@@ -20,11 +20,13 @@ class App {
 
     async showDay(event){
 
+        document.querySelector('.waiting-block').classList.remove('inactive');
 
         this.daybar.innerHTML = this.daybar.innerHTML + event.detail.Day ;
         let test = await this.day.onSubmit(event.detail.Month,event.detail.Day);
         this.month.hide();
         this.day.show();
+        document.querySelector('.waiting-block').classList.add('inactive');
         document.getElementById("daily").scrollIntoView({behavior: "auto" , block: "start"});
 
     }

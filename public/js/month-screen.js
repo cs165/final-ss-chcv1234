@@ -8,6 +8,7 @@ class Monthscreen {
         this.test ;
 
         this.scheduleGET = this.scheduleGET.bind(this);
+
         this.scheduleGET();
 
         this.getSubmit = this.getSubmit.bind(this);
@@ -20,6 +21,8 @@ class Monthscreen {
 
 
     async scheduleGET(event){
+
+        document.querySelector('.waiting-block').classList.remove('inactive');
 
         const response = await fetch("/api", {method: "GET"});
         const json = await response.json();
@@ -73,6 +76,7 @@ class Monthscreen {
             this.test[i].addEventListener('click',this.getSubmit);
         }
 
+        document.querySelector('.waiting-block').classList.add('inactive');
     }
 
     show() {
